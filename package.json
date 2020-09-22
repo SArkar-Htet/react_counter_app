@@ -2,6 +2,7 @@
   "name": "counter_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://SArkar-Htet.github.io/react_counter_app",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
