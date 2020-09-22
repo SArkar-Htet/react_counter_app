@@ -1,8 +1,6 @@
 ## Counter App
 
-Counter app was created by ReactJs.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo Link
 
