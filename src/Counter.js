@@ -41,6 +41,7 @@ export default class Counter extends Component {
   reset = () => {
     this.setState((state) => ({
       counter : 0,
+      error : '',
     }));
   }
   
