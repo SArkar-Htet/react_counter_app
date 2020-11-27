@@ -53,9 +53,9 @@ export default class Counter extends Component {
   render() {
     const {counter, alert} = this.state;
     return (
-      <div className="Counter-box">
-        <h2 className="Counter-header">Counter App</h2>
-        <h4 className="Counter-counter my-4">{counter}</h4>
+      <div className="counter">
+        <h2 className="counter-header">Counter App</h2>
+        <h4 className="counter-count my-4">{counter}</h4>
         <CounterButton onIncrease={this.onIncrease} onDecrease={this.onDecrease} onReset={this.onReset} />
         <Alert alert={alert}/>
       </div>
