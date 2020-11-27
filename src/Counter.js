@@ -1,63 +1,63 @@
 import React, { Component } from 'react';
+import CounterButton from './CounterButton';
 import Alert from './Alert';
 import './Counter.css';
 
 export default class Counter extends Component {
+  
   constructor(props) {
     super(props)
   
     this.state = {
       counter : 0,
-      error : '',
+      alert : '',
     }
+    this.onIncrease = this.onIncrease.bind(this);
+    this.onDecrease = this.onDecrease.bind(this);
+    this.onReset = this.onReset.bind(this);
   }
-
-  increase = () => {
-    if (this.state.counter < 10) {
+  
+  onIncrease() {
+    const {counter} = this.state;
+    counter < 10 ?
       this.setState((state) => ({
         counter : state.counter + 1,
-        error : '',
-      }));
-    } else {
-      this.setState((state) => ({
-        error : 'Cannot increase greater than 10!',
-      }));
-    }
+        alert : '',
+      })) 
+    :
+      this.setState({
+        alert : "Can't increase greater than 10!",
+      });
   }
 
-  decrease = () => {
-    if (this.state.counter > 0) {
+  onDecrease() {
+    const {counter} = this.state;
+    counter > 0 ?
       this.setState((state) => ({
         counter : state.counter - 1,
-        error : '',
-      }));
-    } else {
-      this.setState((state) => ({
-        error : 'Cannot decrease less than 0!',
-      }));
-    }
+        alert : '',
+      }))
+    : 
+      this.setState({
+        alert : "Can't decrease less than 0!",
+      });
   }
 
-  reset = () => {
-    this.setState((state) => ({
+  onReset() {
+    this.setState({
       counter : 0,
-      error : '',
-    }));
+      alert : '',
+    });
   }
   
   render() {
+    const {counter, alert} = this.state;
     return (
       <div className="Counter-box">
         <h2 className="Counter-header">Counter App</h2>
-        <h4 className="Counter-counter my-4">{this.state.counter}</h4>
-        <div className="Counter-button">
-          <button type="button" className="btn btn-primary mx-2" onClick={this.increase}>Increase</button>
-          <button type="button" className="btn btn-danger mx-2" onClick={this.decrease}>Decrease</button>
-          <button type="button" className="btn btn-secondary mx-2" onClick={this.reset}>Reset</button>
-        </div>
-        
-        <Alert error={this.state.error} />
-        
+        <h4 className="Counter-counter my-4">{counter}</h4>
+        <CounterButton onIncrease={this.onIncrease} onDecrease={this.onDecrease} onReset={this.onReset} />
+        <Alert alert={alert}/>
       </div>
     )
   }
